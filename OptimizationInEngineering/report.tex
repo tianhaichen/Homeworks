@@ -21,7 +21,7 @@
 \maketitle
 
 \begin{abstract}
-Solved problems in this homework are some of the problems at the end of chapter 4, 10 and 11 of the book Introduction to Optimum Design by Jasbir Arora\cite{arora2004introduction}. The solution includes the following problems; Problem 4.7, 4.9, 4.22, 4.32, 4.47, 4.60, 4.85, 4.101, 4.138, 4.150, 10.11, 10.16, 10.27, 10.53, 10.59, 10.68, 11.10, 11.12, 11.33.
+Solved problems in this homework are some of the problems at the end of chapter 4, 10 and 11 of the book Introduction to Optimum Design by Jasbir Arora\cite{arora2004introduction}. The solution includes the following problems; Problem 4.7, 4.9, 4.22, 4.32, 4.47, 4.60, 4.85, 4.101, 4.138, 4.150, 8.11, 8.16, 8.27, 8.53, 8.59, 8.68, 9.10, 9.12, 9.33.
 \end{abstract}
 \subsection*{Problem 4.7}
 Write down the Taylor Series representation of $e^x$ including quadratic terms around $x^*=2$.
@@ -431,7 +431,7 @@ The behavior of constraints $g_1$ and $g_2$ an be determined from their hessian 
 \end{array}\right]
 \end{eqnarray*}
 The Hessian matrices of both the constraints are positive definite for $\theta=\degrees{\frac{\pi}{3}}$ and $x_1 \geq 0$, $x_2\geq 0$. Therefore, the problem is strictly convex.
-\subsection*{Problem 10.11}
+\subsection*{Problem 8.11}
 Determine whether the given direction is descent for the given function.
 \begin{eqnarray*}
 f\left(\mathbf x\right)=x_1^2+x_2^2+x_3^2 ; \quad \mathbf d=\left(2,4,-2\right)\quad \mathrm{at} \quad \mathbf{x}=\left(1,2,-1\right)
@@ -461,7 +461,7 @@ projection of direction on the gradient vector is
 \mathbf d \cdot  \mathbf \triangledown f &>& 0 
 \end{eqnarray*}
 Projection of direction on the gradient of the function is found to be positive, therefore, the direction is not descent. 
-\subsection*{Problem 10.16}
+\subsection*{Problem 8.16}
 Find the minimum of the function $f\left(\alpha\right)=7\alpha^2-20\alpha+22$ using equal-interval-search method within accuarcy of 0.001. Use $\delta=0.05$.
 \subsubsection*{Solution}
 In equal interval equal-interval-search design variable range is determined by $x_l$ and $x_u$ then this range is divided to equal intervals. Function is evaluated at the end of the intervals. A change in function behavior at the interval $k$ is a sign for a root.
@@ -538,7 +538,7 @@ For the start of iteration initial values are selected to be as $\alpha_l=1.3$ a
 \alpha_u^{(5)}=1.43 \; \Longrightarrow f_u^{(5)}=7.7143
 \end{program}
 solution is found as $\alpha^*=1.429$ , $  f^*=7.734287$.
-\subsection*{Problem 10.27}
+\subsection*{Problem 8.27}
 For the following function, direction of change is given. Derive the function of one variable that can be used to determine optimum step size.
 \begin{eqnarray*}
 f\left(\mathbf x\right)=x_1^2+x_2^2+x_3^2 ; \quad \mathbf d=\left(-2,-4,2\right)\quad \mathrm{at} \quad \mathbf{x}=\left(1,2,-1\right)
@@ -556,7 +556,7 @@ f\left( \mathbf{x}_0+\alpha \mathbf d\right)&=&\left(1-2\alpha\right)^2+\left(2-
 \end{eqnarray*}
 which should be minimized.
 \newpage
-\subsection*{Problem 10.53}
+\subsection*{Problem 8.53}
 \label{Problem1053}
 For the following problem complete two iterations of the steepest descent method.
 \begin{eqnarray*}
@@ -612,13 +612,13 @@ The iterations for the solution of problem with Steepest Descent Method are give
 \left(6\right)\quad \mathbf x^{(2)}=\mathbf x^{(1)}+\mathbf d^{(1)}=\left[0.2265\ , \ 0.0222\right]
 \end{program}
 
-\subsection*{Problem 10.59}
+\subsection*{Problem 8.59}
 For the following problem complete two iterations of the Steepest Descent Method.
 \begin{eqnarray*}
 f\left(\mathbf x\right)&=&9x_1^2+9x_2^2-100\sqrt{x_1^2+x_2^2-20x_2+100}+80\sqrt{x_1^2+x_2^2+20x_2+100}-\\&&5x_1-41x_2 \quad,\quad \mathbf{x}_0=\left(5,2\right)
 \end{eqnarray*}
 \subsubsection*{Solution}
-Steepest Descent Algorithm is given in problem 10.53. Therefore, it is not given here. For the solution, gradient of the cost function is needed which is found as
+Steepest Descent Algorithm is given in problem 8.53. Therefore, it is not given here. For the solution, gradient of the cost function is needed which is found as
 \begin{eqnarray*}
 \mathbf{c}=\mathbf \triangledown f\left(\mathbf x\right)=\left[\begin{array}{c}
 18x_1-\frac{100x_1}{\sqrt{x_1^2+x_2^2-20x_2+100}}+\frac{80x_1}{\sqrt{x_1^2+x_2^2+20x_2+100}} \\ 18-x_2-\frac{100x_2-10}{\sqrt{x_1^2+x_2^2-20x_2+100}}+\frac{80x_2+10}{\sqrt{x_1^2+x_2^2-20x_2+100}}-41\end{array}\right]^T
@@ -647,7 +647,7 @@ Iterations done for the solution is given below,
 \quad \quad \quad \quad \quad \quad \quad \quad \quad \alpha=0.0191\\~\\
 \left(6\right)\quad \mathbf x^{(2)}=\mathbf x^{(1)}+\mathbf d^{(1)}=\left[0.063\ , \ -7.9\right]
 \end{program}
-\subsection*{Problem 10.68}
+\subsection*{Problem 8.68}
 For the following problem, complete two iterations of the Conjugate Gradient Method.
 \begin{eqnarray*}
 f\left(\mathbf x\right)&=&9x_1^2+9x_2^2-100\sqrt{x_1^2+x_2^2-20x_2+100}+80\sqrt{x_1^2+x_2^2+20x_2+100}-\\&&5x_1-41x_2 \quad,\quad \mathbf{x}_0=\left(5,2\right)
@@ -706,7 +706,7 @@ Solution steps of the problem is given below. Before going into the solution its
 \quad \quad \quad \alpha=0.01488\\~\\
 \left(6\right)\quad \mathbf x^{(2)}=\mathbf x^{(1)}+\mathbf d^{(1)}=\left[0.2294\ , \ 0.1133\right]
 \end{program}
-\subsection*{Problem 11.10}
+\subsection*{Problem 9.10}
 For the following problem, complete one iteration of modified Newton's method, aslo check descent condition for the search direction.
 \begin{eqnarray*}
 f\left(\mathbf x\right)&=&x_1^2+2x_2^2-4x_1-2x_1x_2 \quad ; \quad \mathbf{x}_0=\left(1,1\right)
@@ -776,7 +776,7 @@ The iterations of the problem is given below.\\~\\
 \quad \quad \quad \alpha=-1\\~\\
 \left(6\right)\quad \mathbf x^{(1)}=\mathbf x^{(0)}+\mathbf d^{(0)}=\left[4\ , \ 2\right]
 \end{program}
-\subsection*{Problem 11.12}
+\subsection*{Problem 9.12}
 For the following problem, complete two iterations of Davidon-Fletcher-Powel method, also check descent condition for the search direction.
 \begin{eqnarray*}
 f\left(\mathbf x\right)&=&x_1^2+2x_2^2-4x_1-2x_1x_2 \quad ; \quad \mathbf{x}_0=\left(1,1\right)
@@ -844,7 +844,7 @@ The problem solution steps are given below.
 \quad \quad \ \ \mathbf{C}^{(1)}=-\frac{\mathbf{z}^{(1)}{\mathbf{z}^{\mathrm{T}}}^{(1)}}{\mathbf{y}^{(1)}{\mathbf{z}}^{(1)}}=\left[\begin{array}{cc}0.5888&-0.4210\\-0.4210 & 0.3010\end{array}\right]\\~  \\
 \quad \quad \ \  \mathbf{A}^{(2)} =\left[\begin{array}{cc}    1.4696 &   0.0439\\-0.7161& -0.0726\end{array}\right]
 \end{program}
-\subsection*{Problem 11.33}
+\subsection*{Problem 9.33}
 For the following problem, complete two iterations of BFGS method.
 \begin{eqnarray*}
 f\left(\mathbf x\right)&=&x_1^2+2x_2^2-4x_1-2x_1x_2 \quad ; \quad \mathbf{x}_0=\left(1,1\right)
