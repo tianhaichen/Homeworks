@@ -1,0 +1,10 @@
+f=@(xvec) [2*(xvec(1)-4)+xvec(3)-xvec(4);2*(xvec(2)-6)+xvec(3)-xvec(5);xvec(1)+xvec(2)-12+xvec(6)^2;-xvec(1)+6+xvec(7)^2;-xvec(2)+xvec(8)^2;2*xvec(6)*xvec(3);2*xvec(7)*xvec(4);2*xvec(8)*xvec(5);];
+sol=fsolve(f,[1 1 1 1 1 1 1 1]);
+x=sol(1); 
+y =sol(2);
+u1 =sol(3);
+u2 =sol(4);
+u3 =sol(5);
+s1 =sol(6);
+s2 =sol(7);
+s3=sol(8);
