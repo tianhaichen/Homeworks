@@ -1,0 +1,220 @@
+\documentclass[]{report}
+
+
+% Title Page
+\title{Homework I Solutions \\ of \\ \emph{Advanced Mechanical Vibrations} class.}
+\author{Burak ER}
+\usepackage{psfrag}
+
+\usepackage{amsmath}
+
+\usepackage{amssymb}
+
+\usepackage{pstricks, pst-node, pst-plot, pst-circ}
+
+\usepackage{moredefs}
+
+\usepackage{hyperref}
+
+\usepackage{cleveref}
+
+\usepackage{graphicx}
+
+\usepackage{epstopdf}
+
+\usepackage{epsfig}
+
+\usepackage{algorithm}
+
+\usepackage{program}
+
+\usepackage[autolinebreaks,useliterate]{mcode}
+
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
+
+\begin{document}
+
+
+\maketitle
+\begin{abstract}
+Includes the solutions for the first homework problems of \emph{Advanced Mechanical Engineering} class given at Bursa Technical University, in fall semester 2013.
+\\
+\\
+Written by \LaTeX ~using TeXstudio...
+\end{abstract}
+\section*{Problem 1}
+Half-car model of a vehicle is given in the figure. The physical properties are as follows: $m=420kg$, $m1=m2=53kg$, $I_x=820 kgm^2$, $b_1=0.7m$, $b_2=0.75m$, $k =10000Nm^{-1}$, $k_t=200000 Nm^{-1}$, $kR=25000 Nm^{-1}$, $k_4= 1972900 Nm^{-1}$, $c=200 Nsm^{-1}$. The vehicle is subject to base motions $y_1$ and $y_2$.
+
+\begin{figure}[ht!]
+\begin{tabular}{cc}
+ \includegraphics[width=0.5\linewidth]{./Figures/2st_Assignment} & \includegraphics[width=0.5\linewidth]{./Figures/2st_Assignment_1}
+\end{tabular}
+\label{fig:2st_Assignment}
+\end{figure}
+Mass, damping and stiffness matrices of the car model are
+\begin{eqnarray*}
+\mathbf{M}=\left[\begin{array}{cccc}
+m&0&0&0\\
+0&I_x&0&0 \\
+0&0&m_1&0 \\
+0&0&0&m_2
+\end{array}\right]
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\mathbf{C}=\left[\begin{array}{cccc}
+2c&cb_1-cb_2&-c&-c\\
+cb_1-cb_2&cb_1^2+cb_2^2&-cb_1&cb_2 \\
+-c&-cb_1&c&0 \\
+-c&cb_2&0&c
+\end{array}\right]
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\mathbf{K}=\left[\begin{array}{cccc}
+2k&kb_1-kb_2&-k&-k\\
+kb_1-kb_2&kb_1^2+kb_2^2&-kb_1&kb_2 \\
+-k&-kb_1&k+k_t&0 \\
+-k&kb_2&0&k+k_t
+\end{array}\right]
+\end{eqnarray*}
+
+\subsection*{Question 1}
+Find the undamped natural frequencies and vibration modes by
+
+\begin{itemize}
+\item Solving characteristic polynomial.
+\item Matrix iteration method.
+\end{itemize}
+\begin{center}
+\subsection*{Solution 1}
+\end{center}
+\textbf{Solving characteristic polynomial.}\\~\\
+Undamped system characteristic polynominal is found from the equation
+\begin{eqnarray*}
+\mathrm{det}\left(-\lambda^2\mathbf{M}+ \mathbf{K}\right)=0
+\end{eqnarray*}
+which is found 
+\begin{eqnarray*}
+9.67\cdot 10^8\, {\mathrm{\lambda}}^8 - 7.75\cdot 10^{12}\, {\mathrm{\lambda}}^6 + 1.59\cdot 10^{16}\, {\mathrm{\lambda}}^4 - 1.35\cdot 10^{18}\, {\mathrm{\lambda}}^2 + 2.94\cdot 10^{19}=0
+\end{eqnarray*}
+where the solution of natural frequencies are found as
+\begin{eqnarray*}
+{\mathbf{\Lambda}}=\left[\begin{array}{c} 62.964\\ 62.951\\ 6.749\\6.517 \end{array}\right]\mathrm{radian/s}
+\end{eqnarray*}
+\emph{I}th mode shape of the system can be found by substituting $\lambda_i$ on the equation 
+\begin{eqnarray*}
+\left(-\lambda^2\mathbf{M}+ \mathbf{K}\right)\mathbf{u}=\mathbf{0}
+\end{eqnarray*}
+that is found 
+\begin{eqnarray*}
+\begin{array}{ccc} 500.0\, u_{2} + 10000.0\, u_{3} + 10000.0\, u_{4} + u_{1}\, \left(420.0\, {\mathrm{\lambda}_i}^2 - 20000.0\right)&=& 0\\ 500.0\, u_{1} + 7000.0\, u_{3} - 7500.0\, u_{4} + u_{2}\, \left(820.0\, {\mathrm{\lambda}_i}^2 - 35525.0\right)&=& 0\\ 10000.0\, u_{1} + 7000.0\, u_{2} + u_{3}\, \left(53.0\, {\mathrm{\lambda}_i}^2 - 210000.0\right)&=& 0\\ 10000.0\, u_{1} - 7500.0\, u_{2} + u_{4}\, \left(53.0\, {\mathrm{\lambda}_i}^2 - 210000.0\right)&=& 0 \end{array}
+\end{eqnarray*}
+with assuming $u_1=1$ and then normalizing the mode shapes, mode shapes are are found as\\~\\
+for $\lambda_1$
+\begin{eqnarray*}
+\mathbf{u}_1=\left[\begin{array}{cccc} 0.00859  \\ 0.00011  \\ 0.97766  \\ 0.36874 \end{array}\right]
+\end{eqnarray*}
+for $\lambda_2$
+\begin{eqnarray*}
+\mathbf{u}_2=\left[\begin{array}{cccc} -0.00015  \\ 0.0031884  \\ -0.19903  \\ 0.92811 \end{array}\right]
+\end{eqnarray*}
+for $\lambda_3$
+\begin{eqnarray*}
+\mathbf{u}_3=\left[\begin{array}{cccc} -0.69795  \\ -0.71612 \\ 0.04038  \\ 0.04902\end{array}\right]
+\end{eqnarray*}
+for $\lambda_4$
+\begin{eqnarray*}
+\mathbf{u}_4=\left[\begin{array}{cccc} -0.71609 \\ 0.6979  \\ 0.05428  \\ -0.01575 \end{array}\right]
+\end{eqnarray*}
+\subsection*{Question 2}
+\begin{itemize}
+\item Plot the vibration modes, comment them and make conclusions.
+\item Compute modal mass and stiffness values.
+\item Show that vibration modes are orthogonal to each other with respect to mass and stiffness matrices.
+\end{itemize}
+\begin{center}
+\subsection*{Solution 2}
+\end{center}
+\textbf{Plot the vibration modes, comment them and make conclusions.}
+\\~\\
+Plot of vibration modes is given in \cref{fig:allmodes}. What can be seen from the figure is; the dominant term in the first and second mode are displacements of the tires. These modes have two highest natural frequencies. In the third and fourth mode the dominant variables are displacement and the rotation of the car body. These modes have the lowest two natural frequencies.
+\\~\\
+It is concluded that, as expected, low frequency modes exist just because of the contribution of the body of the car and high frequency modes exist because of the contribution of the tires.
+\begin{figure}[h!]
+\centering
+\include{./Figures/allmode}
+\caption{Vibration modes}
+\label{fig:allmodes}
+\end{figure}
+\newpage
+~\\
+\textbf{Compute modal mass and stiffness matrices.}
+\\~\\
+Modal mass and stiffness matrices are found from the relations
+\begin{eqnarray*}
+\mathbf{m}=\mathbf{\Phi}^T \mathbf{M} \mathbf{\Phi} \\
+\mathbf{k}=\mathbf{\Phi}^T \mathbf{K} \mathbf{\Phi}
+\end{eqnarray*}
+where $\mathbf{\Phi}$ is the eigen modes matrix. If we calculate them it is found that
+\begin{eqnarray*}
+\mathbf{m}=\left(\begin{array}{cccc} 53.0 & 0 & 0 & 0\\ 0 & 53.0 & 0 & 0\\ 0 & 0 & 434.0 & 0\\ 0 & 0 & 0 & 764.0 \end{array}\right)
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+\mathbf{k}=\left(\begin{array}{cccc} 2.1\cdot 10^5 & 0 & 0 & 0\\ 0 & 2.1\cdot 10^5 & 0 & 0\\ 0 & 0 & 1.98\cdot 10^4 & 0\\ 0 & 0 & 0 & 3.24\cdot 10^4 \end{array}\right)
+\end{eqnarray*}
+\newpage
+~\\
+\textbf{Show that vibration modes are orthogonal to each other with respect to mass and stiffness matrices.}
+\\~\\
+Zero bidiagonal elements in modal and stiffness matrices mean that the modes are orthogonal to each other with respect to mass and stiffness matrices. It is already showed that they are equal to zero in the previous answer.
+\subsection*{Question 3}
+\textbf{Suppose that while moving with a speed $\mathrm{V} = 60 km/h$ the right tire passes over a half sine wave-like bump on the road as shown below, where $\mathrm{a} = 30cm$ and $\mathrm{b} = 5cm$. Assuming zero initial conditions plot the 5 seconds responses of the coordinates $x_1$ and $x_2$.}
+\\~\\
+This problem can be solved numerically integrating the equations of motion. Before we do that, applied force on the second tire should be calculated. The force on the tire depends on the displacement of the road. Therefore, displacement profile with respect to time is
+\begin{eqnarray*}
+\mathrm{T}&= &0.072\frac{\mathrm{a}}{\mathrm{V}}\quad \mathrm{(seconds)}
+\\
+y_2&=&\{\begin{array}{clc}
+\mathrm{b}\sin\left(\frac{2\pi}{\mathrm{T}}t\right) &,& 0\leq t \leq \frac{\mathrm{T}}{2} \\ 
+0 &,& \frac{\mathrm{T}}{2}<t
+\end{array}
+\end{eqnarray*}
+with the found displacement of the road, complete force vector of the model is found as
+\begin{eqnarray*}
+\mathrm{F}=\left[\begin{array}{ccc}
+0\\
+0\\
+y_1 k_t\\
+y_2 k_t
+\end{array}\right]
+\end{eqnarray*}
+With this calculated road input force, a numerical solution to the equations of motion of the car is done by a matlab function. This function is given in~\cref{lst:odefunc} and it calculates required derivatives of the system by using order reducing method. The derivatives can be integrated by a numerical method, for example Runge-Kutta. For the integration of derivatives \mcode{Ode45} function of matlab is used in which integration is done with Runge-Kutta45 method. Integration is completed with the command in \cref{lst:command}.
+\lstset{frame=single,numbers=left}
+\begin{lstlisting}[label=lst:command,caption=integration commands]
+options = odeset('MaxStep',1e-3)
+[t y]=ode45(@odefunc,[0 5],[0 0 0 0 0 0 0 0],options);
+\end{lstlisting}
+%\begin{eqnarray*}
+%{{\mathbf M}}\mathbf{\ddot {\mathbf x}}+{{\mathbf C}}\mathbf{\dot {\mathbf x}}+{{\mathbf K}}\mathbf{ {\mathbf x}}={{\mathbf F}}
+%\end{eqnarray*}
+\newpage
+\lstset{frame=single,numbers=left}
+\lstinputlisting[label=lst:odefunc,caption={{odefunc.m}}]{Matlab/odefunc.m}
+~\\~\\
+Using \cref{lst:command} with \cref{lst:odefunc} the resulting time dependent behaviors of the displacements of the right and the left tires are given in \cref{fig:timedependenttires}.
+\begin{figure}[ht!]
+\input{./Figures/timedependent}
+\caption{Time dependent motion of the tires of the car.}
+\label{fig:timedependenttires}
+\end{figure}
+
+
+\bibliographystyle{plain}
+\bibliography{biblio}
+
+\end{document}          
+
+
