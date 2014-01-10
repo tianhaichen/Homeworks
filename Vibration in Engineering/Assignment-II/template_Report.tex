@@ -2,7 +2,7 @@
 
 
 % Title Page
-\title{Homework I Solutions \\ of \\ \emph{Advanced Mechanical Vibrations} class.}
+\title{Homework II Solutions \\ of \\ \emph{Advanced Mechanical Vibrations} class.}
 \author{Burak ER}
 
 \usepackage{psfrag}
@@ -95,7 +95,6 @@ kb_1-kb_2&kb_1^2+kb_2^2&-kb_1&kb_2 \\
 
 \subsection*{Question 1}
 
-
 \begin{enumerate}
 \item Find the undamped natural frequencies and vibration modes by
 \begin{enumerate}
@@ -182,9 +181,11 @@ and
 \textbf{Show that vibration modes are orthogonal to each other with respect to mass and stiffness matrices.}
 \\~\\
 Zero bidiagonal elements in modal and stiffness matrices mean that the modes are orthogonal to each other with respect to mass and stiffness matrices. It is already showed that they are equal to zero in the previous answer.
-\subsection*{Question 3}
+\subsection*{Question 2}
 \textbf{Suppose that while moving with a speed $\mathrm{V} = 60 km/h$ the right tire passes over a half sine wave-like bump on the road as shown below, where $\mathrm{a} = 30cm$ and $\mathrm{b} = 5cm$. Assuming zero initial conditions plot the 5 seconds responses of the coordinates $x_1$ and $x_2$.}
-\\~\\
+\begin{center}
+\subsection*{Solution 2}
+\end{center}
 This problem can be solved numerically integrating the equations of motion. Before we do that, applied force on the second tire should be calculated. The force on the tire depends on the displacement of the road. Therefore, displacement profile with respect to time is
 \begin{eqnarray*}
 \mathrm{T}&= &0.072\frac{\mathrm{a}}{\mathrm{V}}\quad \mathrm{(seconds)}
@@ -233,8 +234,75 @@ In \cref{fig:problem2}, a beam  with fixed one end, carrying  a rigid tip mass M
 \end{figure}
 \subsection*{Question 1}
 \textbf{Derive the equations of motion with suitable boundary conditions.}
-\\~\\
-
+\begin{center}
+\subsection*{Solution 1}
+\end{center}
+The transverse equation of motion for the beam is given by
+\begin{eqnarray*}
+ EI~\cfrac{\partial^4 w}{\partial x^4} + \rho A~\cfrac{\partial^2 w}{\partial t^2} = 0
+\end{eqnarray*}
+The boundary conditions for the problem are as follows:\\
+\begin{enumerate}
+\item {zero displacement at $x=0$ :\\ \begin{eqnarray*}
+w\left(0,t\right)=0
+\end{eqnarray*} }
+\item {zero slope of displacement at $x=0$ :\\ \begin{eqnarray*}
+\cfrac{\partial w\left(0,t\right)}{\partial x}=0
+\end{eqnarray*} }
+\item {shear force acceleration of lumped mass equilibrium at $x=L$ :\\ \begin{eqnarray*}
+ EI~\cfrac{\partial w^3\left(L,t\right)}{\partial x^3}=M\cfrac{\partial w^2\left(L,t\right)}{\partial t^2}
+\end{eqnarray*} }
+\item {zero moment at $x=L$ :\\ \begin{eqnarray*}
+ EI~\cfrac{\partial w^2\left(L,t\right)}{\partial x^2}=0
+\end{eqnarray*} }
+\end{enumerate}
+\subsection*{Question 2}
+\textbf{Find the first five natural frequencies (Hz) and vibration modes of the system. Plot the vibration modes in the same figure.}
+\begin{center}
+\subsection*{Solution 2}
+\end{center}
+Using seperation of variables method, the displacements of the beam can be written as
+\begin{eqnarray*}
+u\left(x,t\right)=U\left(x\right)T\left(t\right)
+\end{eqnarray*}
+using this assumption with the equations of motion we have
+\begin{eqnarray*}
+U^{IV} +\lambda^4U&=&0\\
+\ddot{T} +\omega^2 T&=&0
+\end{eqnarray*}
+Using these differential equations , the space dependent part of the solution of transverse vibration of beam is found as
+\begin{eqnarray*}
+X(x)=A\cosh\left(\cfrac{\lambda x}{L}\right)+B\sinh\left(\cfrac{\lambda x}{L}\right)+C\cos\left(\cfrac{\lambda x}{L}\right)+D\sin\left(\cfrac{\lambda x}{L}\right)
+\end{eqnarray*}
+and time dependent part as
+\begin{eqnarray*}
+X(x)=\bar{A}\cos\left({\omega t}\right)+\bar{B}\sin\left({\omega t}\right)
+\end{eqnarray*}
+where $\omega^2=\lambda^4 \cfrac{EI}{mL^4}$. In these equations have 4 variables to determine in the space dependent part. Using boundary conditions, these variables can be determined. Using first two boundary conditions
+\begin{eqnarray*}
+U\left(0,t\right)= 0 &;&  A+C=0 \quad \Longrightarrow \quad A=-C\\
+U'\left(0,t\right)= 0&;& B+D=0 \quad \Longrightarrow \quad B=-D
+\end{eqnarray*}
+Using other boundary conditions
+\begin{eqnarray*}
+EIU''\left(L,t\right)= 0&;& A\biggl[\cosh\left(\lambda \right)+\cos\left(\lambda \right)\biggl]+
+B\biggl[\sinh\left(\lambda \right)+\sin\left(\lambda \right)\biggr]=0\\
+EIU'''\left(L,t\right)-M\omega^2U\left(L,t\right)= 0&;& A\underbrace{\biggl[EI\left(\cfrac{\lambda}{L}\right)^3\left(\sinh\left(\lambda \right)-\sin\left(\lambda \right)\right)+ \quad M\omega^2\left(\cosh\left(\lambda \right)-\cos\left(\lambda \right)\right)\biggr]}_{\xi_A}+\\
+&&
+\underbrace{\biggl[EI\left(\cfrac{\lambda}{L}\right)^3\left(\cosh\left(\lambda \right)+\cos\left(\lambda \right)\right) \quad M\omega^2\left(\sinh\left(\lambda \right)-\sin\left(\lambda \right)\right)\biggr]}_{\xi_B}=0
+\end{eqnarray*}
+These two equations with two unknowns can be written as
+\begin{eqnarray*}
+\left[\begin{array}{cc}
+\cosh\left(\lambda \right)+\cos\left(\lambda \right)&\sinh\left(\lambda \right)+\sin\left(\lambda \right) \\
+\xi_A & \xi_B\end{array}\right]=\left[\begin{array}{c}
+A\\B
+\end{array}\right]=\mathbf{0}
+\end{eqnarray*}
+where determinant of the coefficient matrix must be zero for a meaningful solution of the variables. This results the equation
+\begin{eqnarray*}
+\left(E\, I\, {\lambda}^3\, \left(\cos\!\left(\lambda\right) + \cosh\!\left(\lambda\right)\right) - \frac{E\, I\, M\, {\lambda}^4\, \sinh\!\left(\sin\!\left(\lambda\right) - \lambda\right)}{L^4\, m}\right)\, \left(\cos\!\left(\lambda\right) + \cosh\!\left(\lambda\right)\right) - \left(E\, I\, {\lambda}^3\, \left(\sin\!\left(\lambda\right) + \sinh\!\left(\lambda\right)\right) + \frac{E\, I\, M\, {\lambda}^4\, \cosh\!\left(\cos\!\left(\lambda\right) - \lambda\right)}{L^4\, m}\right)\, \left(\sin\!\left(\lambda\right) + \sinh\!\left(\lambda\right)\right)
+\end{eqnarray*}
 
 
 \bibliographystyle{plain}

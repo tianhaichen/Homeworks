@@ -1,0 +1,205 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>beam</title><meta name="generator" content="MATLAB 8.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-01-09"><meta name="DC.source" content="beam.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Defining boundary conditions</a></li><li><a href="#2">Describing problem specific variables</a></li><li><a href="#3">Finding Natural Frequencies</a></li><li><a href="#4">Finding Mode Shapes</a></li><li><a href="#5">Plotting the results</a></li></ul></div><h2>Defining boundary conditions<a name="1"></a></h2><pre class="codeinput">syms <span class="string">x</span> <span class="string">L</span> <span class="string">lambda</span> <span class="string">A</span> <span class="string">B</span> <span class="string">C</span> <span class="string">D</span>;
+syms <span class="string">rho</span> <span class="string">Abar</span> <span class="string">M</span>;
+X=A*cos((lambda/L)*x)+B*sin((lambda/L)*x)+C*cosh((lambda/L)*x)+D*sinh((lambda/L)*x);
+syms <span class="string">xder</span>
+xder(1,:)=X;<span class="comment">%Zero displacement at x=0</span>
+xder(2,:)=simplify(diff(X,x,1));<span class="comment">%Zero slope at x=0</span>
+xder(3,:)=simplify(rho*Abar*diff(X,x,3)-M*lambda^4*X);<span class="comment">%Shear force equilibrium at x=L</span>
+xder(4,:)=simplify(diff(X,x,2));<span class="comment">%Moment equilibrium at x=L</span>
+x=0;
+xd=eval(xder);
+xder(1:2,:)=xd(1:2);
+x=L;
+xd=eval(xder);
+xder(3:4,:)=xd(3:4);
+</pre><h2>Describing problem specific variables<a name="2"></a></h2><pre class="codeinput">L=1;
+a=0.02;
+b=0.01;
+E=210e9;
+rho=7800;
+Abar=a*b;
+M=2*Abar*L*rho;
+</pre><h2>Finding Natural Frequencies<a name="3"></a></h2><pre class="codeinput">xderval=eval(xder);
+[mtr,b] = equationsToMatrix(xderval,[A B C D]);
+U=[A; B ;C ;D];
+detx=det(mtr);
+shapefrequencies=[3.86148294520820 7.03164303944519 10.1850206054873 13.332661754517936 16.4779571402310;]
+</pre><pre class="codeoutput">
+shapefrequencies =
+
+  Columns 1 through 3
+
+   3.861482945208200   7.031643039445190  10.185020605487299
+
+  Columns 4 through 5
+
+  13.332661754517936  16.477957140230998
+
+</pre><h2>Finding Mode Shapes<a name="4"></a></h2><pre class="codeinput">emtr=eval(mtr);
+newB=eval(b-emtr(:,1));
+sol=inv(mtr(2:4,2:4))*newB(2:4);
+
+lambda=shapefrequencies(1);
+sol(:,1)=eval(sol);
+<span class="comment">%one relative ratios is sufficient</span>
+<span class="comment">% lambda=shapefrequencies(2);</span>
+<span class="comment">% sol(:,2)=eval(sol);</span>
+<span class="comment">% lambda=shapefrequencies(3);</span>
+<span class="comment">% sol(:,3)=eval(sol);</span>
+<span class="comment">% lambda=shapefrequencies(4);</span>
+<span class="comment">% sol(:,4)=eval(sol);</span>
+consts=[1;eval(sol)];
+consts=consts/norm(consts);
+
+syms <span class="string">A</span>;
+B=A*consts(2);
+C=A*consts(3);
+D=A*consts(4);
+</pre><h2>Plotting the results<a name="5"></a></h2><pre class="codeinput"><span class="keyword">for</span> i=1:5
+syms <span class="string">x</span>;
+Xeval=eval(X);
+lambda=shapefrequencies(i);
+A=consts(1);
+syms <span class="string">xL</span>;L=xL/x;
+Xeval=eval(Xeval);
+ezplot(Xeval,[0 1]);
+hold <span class="string">on</span>;
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="beam_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2012b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Defining boundary conditions
+syms x L lambda A B C D;
+syms rho Abar M;
+X=A*cos((lambda/L)*x)+B*sin((lambda/L)*x)+C*cosh((lambda/L)*x)+D*sinh((lambda/L)*x);
+syms xder
+xder(1,:)=X;%Zero displacement at x=0
+xder(2,:)=simplify(diff(X,x,1));%Zero slope at x=0
+xder(3,:)=simplify(rho*Abar*diff(X,x,3)-M*lambda^4*X);%Shear force equilibrium at x=L
+xder(4,:)=simplify(diff(X,x,2));%Moment equilibrium at x=L
+x=0;
+xd=eval(xder);
+xder(1:2,:)=xd(1:2);
+x=L;
+xd=eval(xder);
+xder(3:4,:)=xd(3:4);
+
+%% Describing problem specific variables
+% 
+L=1;
+a=0.02;
+b=0.01;
+E=210e9;
+rho=7800;
+Abar=a*b;
+M=2*Abar*L*rho;
+
+%% Finding Natural Frequencies
+xderval=eval(xder);
+[mtr,b] = equationsToMatrix(xderval,[A B C D]);
+U=[A; B ;C ;D];
+detx=det(mtr);
+shapefrequencies=[3.86148294520820 7.03164303944519 10.1850206054873 13.332661754517936 16.4779571402310;]
+
+%% Finding Mode Shapes
+emtr=eval(mtr);
+newB=eval(b-emtr(:,1));
+sol=inv(mtr(2:4,2:4))*newB(2:4);
+
+lambda=shapefrequencies(1);
+sol(:,1)=eval(sol);
+%one relative ratios is sufficient
+% lambda=shapefrequencies(2);
+% sol(:,2)=eval(sol);
+% lambda=shapefrequencies(3);
+% sol(:,3)=eval(sol);
+% lambda=shapefrequencies(4);
+% sol(:,4)=eval(sol);
+consts=[1;eval(sol)];
+consts=consts/norm(consts);
+
+syms A;
+B=A*consts(2);
+C=A*consts(3);
+D=A*consts(4);
+
+%% Plotting the results
+for i=1:5
+syms x;
+Xeval=eval(X);
+lambda=shapefrequencies(i);
+A=consts(1);
+syms xL;L=xL/x;
+Xeval=eval(Xeval);
+ezplot(Xeval,[0 1]);
+hold on;
+end
+
+##### SOURCE END #####
+--></body></html>
