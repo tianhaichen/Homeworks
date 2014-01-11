@@ -116,7 +116,7 @@ Undamped system characteristic polynominal is found from the equation
 \end{eqnarray*}
 which is found 
 \begin{eqnarray*}
-9.67\cdot 10^8\, {\mathrm{\lambda}}^8 - 7.75\cdot 10^{12}\, {\mathrm{\lambda}}^6 + 1.59\cdot 10^{16}\, {\mathrm{\lambda}}^4 - 1.35\cdot 10^{18}\, {\mathrm{\lambda}}^2 + 2.94\cdot 10^{19}=0
+9.67\cdot 10^8\, \lambda^8 - 7.75\cdot 10^{12}\, \lambda^6 + 1.59\cdot 10^{16}\, \lambda^4 - 1.35\cdot 10^{18}\, \lambda^2 + 2.94\cdot 10^{19}=0
 \end{eqnarray*}
 where the solution of natural frequencies are found as
 \begin{eqnarray*}
@@ -128,7 +128,7 @@ where the solution of natural frequencies are found as
 \end{eqnarray*}
 that is found 
 \begin{eqnarray*}
-\begin{array}{ccc} 500.0\, u_{2} + 10000.0\, u_{3} + 10000.0\, u_{4} + u_{1}\, \left(420.0\, {\mathrm{\lambda}_i}^2 - 20000.0\right)&=& 0\\ 500.0\, u_{1} + 7000.0\, u_{3} - 7500.0\, u_{4} + u_{2}\, \left(820.0\, {\mathrm{\lambda}_i}^2 - 35525.0\right)&=& 0\\ 10000.0\, u_{1} + 7000.0\, u_{2} + u_{3}\, \left(53.0\, {\mathrm{\lambda}_i}^2 - 210000.0\right)&=& 0\\ 10000.0\, u_{1} - 7500.0\, u_{2} + u_{4}\, \left(53.0\, {\mathrm{\lambda}_i}^2 - 210000.0\right)&=& 0 \end{array}
+\begin{array}{ccc} 500.0\, u_{2} + 10000.0\, u_{3} + 10000.0\, u_{4} + u_{1}\, \left(420.0\, \lambda_i^2 - 20000.0\right)&=& 0\\ 500.0\, u_{1} + 7000.0\, u_{3} - 7500.0\, u_{4} + u_{2}\, \left(820.0\, \lambda_i^2 - 35525.0\right)&=& 0\\ 10000.0\, u_{1} + 7000.0\, u_{2} + u_{3}\, \left(53.0\, \lambda_i^2 - 210000.0\right)&=& 0\\ 10000.0\, u_{1} - 7500.0\, u_{2} + u_{4}\, \left(53.0\, \lambda_i^2 - 210000.0\right)&=& 0 \end{array}
 \end{eqnarray*}
 with assuming $u_1=1$ and then normalizing the mode shapes, mode shapes are are found as\\~\\
 for $\lambda_1$
@@ -262,47 +262,70 @@ w\left(0,t\right)=0
 \subsection*{Solution 2}
 \end{center}
 Using seperation of variables method, the displacements of the beam can be written as
-\begin{eqnarray*}
+\begin{eqnarray}
 u\left(x,t\right)=U\left(x\right)T\left(t\right)
-\end{eqnarray*}
+\end{eqnarray}
 using this assumption with the equations of motion we have
-\begin{eqnarray*}
-U^{IV} +\lambda^4U&=&0\\
+\begin{eqnarray}
+U^{IV} -\lambda^4U&=&0\\
 \ddot{T} +\omega^2 T&=&0
-\end{eqnarray*}
+\end{eqnarray}
 Using these differential equations , the space dependent part of the solution of transverse vibration of beam is found as
-\begin{eqnarray*}
-X(x)=A\cosh\left(\cfrac{\lambda x}{L}\right)+B\sinh\left(\cfrac{\lambda x}{L}\right)+C\cos\left(\cfrac{\lambda x}{L}\right)+D\sin\left(\cfrac{\lambda x}{L}\right)
-\end{eqnarray*}
+\begin{equation}
+X(x)=A\cosh\left(\lambda x\right)+B\sinh\left(\lambda x\right)+C\cos\left(\lambda x\right)+D\sin\left(\lambda x\right)
+\label{eq:spacesolution}
+\end{equation}
 and time dependent part as
-\begin{eqnarray*}
-X(x)=\bar{A}\cos\left({\omega t}\right)+\bar{B}\sin\left({\omega t}\right)
-\end{eqnarray*}
-where $\omega^2=\lambda^4 \cfrac{EI}{mL^4}$. In these equations have 4 variables to determine in the space dependent part. Using boundary conditions, these variables can be determined. Using first two boundary conditions
-\begin{eqnarray*}
-U\left(0,t\right)= 0 &;&  A+C=0 \quad \Longrightarrow \quad A=-C\\
-U'\left(0,t\right)= 0&;& B+D=0 \quad \Longrightarrow \quad B=-D
-\end{eqnarray*}
+\begin{equation*}
+T(t)=\bar{A}\cos\left({\omega t}\right)+\bar{B}\sin\left({\omega t}\right)
+\end{equation*}
+where $\omega^2=\lambda^4 \cfrac{EI}{\rho A}$. In these equations have 4 variables to determine in the space dependent part. Using boundary conditions, these variables can be determined. Using first two boundary conditions
+\begin{equation}
+U\left(0,t\right)= 0 \quad ; \quad  A+C=0 \quad \Longrightarrow \quad A=-C \label{eq:acrel}
+\end{equation}
+\begin{equation}
+U'\left(0,t\right)= 0\quad ; \quad B+D=0 \quad \Longrightarrow \quad B=-D\label{eq:bdrel}
+\end{equation}
 Using other boundary conditions
 \begin{eqnarray*}
-EIU''\left(L,t\right)= 0&;& A\biggl[\cosh\left(\lambda \right)+\cos\left(\lambda \right)\biggl]+
-B\biggl[\sinh\left(\lambda \right)+\sin\left(\lambda \right)\biggr]=0\\
-EIU'''\left(L,t\right)-M\omega^2U\left(L,t\right)= 0&;& A\underbrace{\biggl[EI\left(\cfrac{\lambda}{L}\right)^3\left(\sinh\left(\lambda \right)-\sin\left(\lambda \right)\right)+ \quad M\omega^2\left(\cosh\left(\lambda \right)-\cos\left(\lambda \right)\right)\biggr]}_{\xi_A}+\\
-&&
-\underbrace{\biggl[EI\left(\cfrac{\lambda}{L}\right)^3\left(\cosh\left(\lambda \right)+\cos\left(\lambda \right)\right) \quad M\omega^2\left(\sinh\left(\lambda \right)-\sin\left(\lambda \right)\right)\biggr]}_{\xi_B}=0
+EIU''\left(L,t\right)= 0&;& \lambda^2 \biggl(A\cosh\left(\lambda L\right)+B\sinh\left(\lambda L\right)\\
+&&-C\cos\left(\lambda L\right) -D\sin\left(\lambda L\right)\biggr)=0\\
+EIU'''\left(L,t\right)-M\omega^2U\left(L,t\right)= 0&;& EI \lambda^3\biggl(A\sinh\left(\lambda L\right)+B\cosh\left(\lambda L\right)\\&&+C\sin\left(\lambda L\right)-D\cos\left(\lambda L\right)\biggr)\\
+&&- M\omega^2\biggl(A\cosh\left(\lambda L\right)+B\sinh\left(\lambda L\right)\\&&+C\cos\left(\lambda L\right)+D\sin\left(\lambda L\right) \biggr)
 \end{eqnarray*}
-These two equations with two unknowns can be written as
+from the third boundary condition we have
+\begin{equation}
+B=-\cfrac{\cosh\left(\lambda L\right)+\cos\left(\lambda L\right)}{\sinh\left(\lambda L\right)+\sin\left(\lambda L\right)}A
+\label{eq:barel}
+\end{equation}
+using all relations in the fourth boundary condition it is found that
 \begin{eqnarray*}
-\left[\begin{array}{cc}
-\cosh\left(\lambda \right)+\cos\left(\lambda \right)&\sinh\left(\lambda \right)+\sin\left(\lambda \right) \\
-\xi_A & \xi_B\end{array}\right]=\left[\begin{array}{c}
-A\\B
-\end{array}\right]=\mathbf{0}
+A\biggl[\left( \sinh\!\left(L\, \lambda\right)-\sin\!\left(L\, \lambda\right)  - \frac{{\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)}}{\sin\!\left(L\, \lambda\right) + \sinh\!\left(L\, \lambda\right)}{\left(\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)\right)}\right)-&&
+\\ 
+\frac{M\, {\lambda}^4\,}{{ \mathrm{\rho}\, A}} \left(\cosh\!\left(L\, \lambda\right) - \cos\!\left(L\, \lambda\right) + \frac{\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)\, }{\sin\!\left(L\, \lambda\right) + \sinh\!\left(L\, \lambda\right)}\left(\sin\!\left(L\, \lambda\right) - \sinh\!\left(L\, \lambda\right)\right)\right)\biggr]&&\\= 0&&
 \end{eqnarray*}
-where determinant of the coefficient matrix must be zero for a meaningful solution of the variables. This results the equation
+where for a non trivial solution $A\neq 0$ should be satisfied. Therefore, the expression inside the brackets must be zero. This results an equation in terms of $\lambda$ where solution corresponds to the eigen frequencies of the beam. 
+\\~\\
+Since it is impossible to obtain explicit expression for the $\lambda$, numerical solution is done. Therefore, the first five space frequencies are found as
+
 \begin{eqnarray*}
-\left(E\, I\, {\lambda}^3\, \left(\cos\!\left(\lambda\right) + \cosh\!\left(\lambda\right)\right) - \frac{E\, I\, M\, {\lambda}^4\, \sinh\!\left(\sin\!\left(\lambda\right) - \lambda\right)}{L^4\, m}\right)\, \left(\cos\!\left(\lambda\right) + \cosh\!\left(\lambda\right)\right) - \left(E\, I\, {\lambda}^3\, \left(\sin\!\left(\lambda\right) + \sinh\!\left(\lambda\right)\right) + \frac{E\, I\, M\, {\lambda}^4\, \cosh\!\left(\cos\!\left(\lambda\right) - \lambda\right)}{L^4\, m}\right)\, \left(\sin\!\left(\lambda\right) + \sinh\!\left(\lambda\right)\right)
+\mathbf{\mathrm{\Lambda}}&=&\left[\begin{array}{c} 3.9256\\ 7.0685\\ 10.2101\\ 13.3517\\ 16.4933 \end{array}\right] \mathrm{rad/m}
 \end{eqnarray*}
+The first five natural frequencies that are found  as
+\begin{eqnarray*}
+\mathbf{\mathrm{\Omega}}&=&\left[\begin{array}{c} 726\\ 2351\\ 4906\\ 8389\\ 12801 \end{array}\right] \mathrm{Hz}
+\end{eqnarray*}
+Mode shape that corresponds to an arbitrary $\lambda$ is found from ~\cref{eq:spacesolution} using the relations \crefrange{eq:acrel}{eq:barel}. The expression for the mode shapes for a specific $\lambda$ is found as
+\begin{eqnarray*}
+U\left(x\right)&=& A\biggl[\cosh\!\left(\lambda\, x\right) - \cos\!\left(\lambda\, x\right) + \frac{\sin\!\left(\lambda\, x\right)\, \left(\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)\right)}{\sin\!\left(L\, \lambda\right) + \sinh\!\left(L\, \lambda\right)} \\&& \quad \quad  - \frac{\sinh\!\left(\lambda\, x\right)\, \left(\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)\right)}{\sin\!\left(L\, \lambda\right) + \sinh\!\left(L\, \lambda\right)}\biggr]
+\end{eqnarray*}
+The plot of the shape $U\left(x\right)$ is given in \cref{fig:cantileverallmodes}.
+\begin{figure}[ht!]
+\centering
+\input{./Figures/cantileverallmodes}
+\caption{First five vibration modes of the beam. }
+\label{fig:cantileverallmodes}
+\end{figure}
 
 
 \bibliographystyle{plain}

@@ -6,7 +6,6 @@ E=210e9;
 I=b*a^3/12;
 A=a*b;
 m=rho*A*L;
-rho=7800;
 M=2*m;
 L=1;
 omega=sqrt(lambda^4*E*I/(rho*A));
