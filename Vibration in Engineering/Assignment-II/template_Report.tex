@@ -46,10 +46,10 @@
 
 \maketitle
 \begin{abstract}
-Includes the solutions for the first homework problems of \emph{Advanced Mechanical Engineering} class given at Bursa Technical University, in fall semester 2013.
+Includes the solutions for the second homework problems of \emph{Advanced Mechanical Engineering} class given at Bursa Technical University, in fall semester 2013.
 \\
 \\
-Written by \LaTeX ~using TeXstudio...
+Written in \LaTeX ~markup language~using TeXstudio...
 \end{abstract}
 \section*{Problem 1}
 Half-car model of a vehicle is given in the \cref{fig:2st_Assignment}. The physical properties are as follows: $m=420kg$, $m1=m2=53kg$, $I_x=820 kgm^2$, $b_1=0.7m$, $b_2=0.75m$, $k =10000Nm^{-1}$, $k_t=200000 Nm^{-1}$, $kR=25000 Nm^{-1}$, $k_4= 1972900 Nm^{-1}$, $c=200 Nsm^{-1}$. The vehicle is subject to base motions $y_1$ and $y_2$.
@@ -66,32 +66,32 @@ Half-car model of a vehicle is given in the \cref{fig:2st_Assignment}. The physi
 \label{fig:2st_Assignment}
 \end{figure}
 Mass, damping and stiffness matrices of the car model are
-\begin{eqnarray*}
+\begin{align*}
 \mathbf{M}=\left[\begin{array}{cccc}
 m&0&0&0\\
 0&I_x&0&0 \\
 0&0&m_1&0 \\
 0&0&0&m_2
 \end{array}\right]
-\end{eqnarray*}
+\end{align*}
 
-\begin{eqnarray*}
+\begin{align*}
 \mathbf{C}=\left[\begin{array}{cccc}
 2c&cb_1-cb_2&-c&-c\\
 cb_1-cb_2&cb_1^2+cb_2^2&-cb_1&cb_2 \\
 -c&-cb_1&c&0 \\
 -c&cb_2&0&c
 \end{array}\right]
-\end{eqnarray*}
+\end{align*}
 
-\begin{eqnarray*}
+\begin{align*}
 \mathbf{K}=\left[\begin{array}{cccc}
 2k&kb_1-kb_2&-k&-k\\
 kb_1-kb_2&kb_1^2+kb_2^2&-kb_1&kb_2 \\
 -k&-kb_1&k+k_t&0 \\
 -k&kb_2&0&k+k_t
 \end{array}\right]
-\end{eqnarray*}
+\end{align*}
 
 \subsection*{Question 1}
 
@@ -111,42 +111,42 @@ kb_1-kb_2&kb_1^2+kb_2^2&-kb_1&kb_2 \\
 \end{center}
 \textbf{Solving characteristic polynomial.}\\~\\
 Undamped system characteristic polynominal is found from the equation
-\begin{eqnarray*}
+\begin{align*}
 \mathrm{det}\left(-\lambda^2\mathbf{M}+ \mathbf{K}\right)=0
-\end{eqnarray*}
+\end{align*}
 which is found 
-\begin{eqnarray*}
+\begin{align*}
 9.67\cdot 10^8\, \lambda^8 - 7.75\cdot 10^{12}\, \lambda^6 + 1.59\cdot 10^{16}\, \lambda^4 - 1.35\cdot 10^{18}\, \lambda^2 + 2.94\cdot 10^{19}=0
-\end{eqnarray*}
+\end{align*}
 where the solution of natural frequencies are found as
-\begin{eqnarray*}
+\begin{align*}
 {\mathbf{\Lambda}}=\left[\begin{array}{c} 62.964\\ 62.951\\ 6.749\\6.517 \end{array}\right]\mathrm{radian/s}
-\end{eqnarray*}
+\end{align*}
 \emph{I}th mode shape of the system can be found by substituting $\lambda_i$ on the equation 
-\begin{eqnarray*}
+\begin{align*}
 \left(-\lambda^2\mathbf{M}+ \mathbf{K}\right)\mathbf{u}=\mathbf{0}
-\end{eqnarray*}
+\end{align*}
 that is found 
-\begin{eqnarray*}
-\begin{array}{ccc} 500.0\, u_{2} + 10000.0\, u_{3} + 10000.0\, u_{4} + u_{1}\, \left(420.0\, \lambda_i^2 - 20000.0\right)&=& 0\\ 500.0\, u_{1} + 7000.0\, u_{3} - 7500.0\, u_{4} + u_{2}\, \left(820.0\, \lambda_i^2 - 35525.0\right)&=& 0\\ 10000.0\, u_{1} + 7000.0\, u_{2} + u_{3}\, \left(53.0\, \lambda_i^2 - 210000.0\right)&=& 0\\ 10000.0\, u_{1} - 7500.0\, u_{2} + u_{4}\, \left(53.0\, \lambda_i^2 - 210000.0\right)&=& 0 \end{array}
-\end{eqnarray*}
+\begin{align*}
+\begin{array}{ccc} 500.0\, u_{2} + 10000.0\, u_{3} + 10000.0\, u_{4} + u_{1}\, \left(420.0\, \lambda_i^2 - 20000.0\right)= 0\\ 500.0\, u_{1} + 7000.0\, u_{3} - 7500.0\, u_{4} + u_{2}\, \left(820.0\, \lambda_i^2 - 35525.0\right)= 0\\ 10000.0\, u_{1} + 7000.0\, u_{2} + u_{3}\, \left(53.0\, \lambda_i^2 - 210000.0\right)= 0\\ 10000.0\, u_{1} - 7500.0\, u_{2} + u_{4}\, \left(53.0\, \lambda_i^2 - 210000.0\right)= 0 \end{array}
+\end{align*}
 with assuming $u_1=1$ and then normalizing the mode shapes, mode shapes are are found as\\~\\
 for $\lambda_1$
-\begin{eqnarray*}
+\begin{align*}
 \mathbf{u}_1=\left[\begin{array}{cccc} 0.00859  \\ 0.00011  \\ 0.97766  \\ 0.36874 \end{array}\right]
-\end{eqnarray*}
+\end{align*}
 for $\lambda_2$
-\begin{eqnarray*}
+\begin{align*}
 \mathbf{u}_2=\left[\begin{array}{cccc} -0.00015  \\ 0.0031884  \\ -0.19903  \\ 0.92811 \end{array}\right]
-\end{eqnarray*}
+\end{align*}
 for $\lambda_3$
-\begin{eqnarray*}
+\begin{align*}
 \mathbf{u}_3=\left[\begin{array}{cccc} -0.69795  \\ -0.71612 \\ 0.04038  \\ 0.04902\end{array}\right]
-\end{eqnarray*}
+\end{align*}
 for $\lambda_4$
-\begin{eqnarray*}
+\begin{align*}
 \mathbf{u}_4=\left[\begin{array}{cccc} -0.71609 \\ 0.6979  \\ 0.05428  \\ -0.01575 \end{array}\right]
-\end{eqnarray*}
+\end{align*}
 \\~\\
 \textbf{Plot the vibration modes, comment them and make conclusions.}
 \\~\\
@@ -164,18 +164,18 @@ It is concluded that, as expected, low frequency modes exist just because of the
 \textbf{Compute modal mass and stiffness matrices.}
 \\~\\
 Modal mass and stiffness matrices are found from the relations
-\begin{eqnarray*}
+\begin{align*}
 \mathbf{m}=\mathbf{\Phi}^T \mathbf{M} \mathbf{\Phi} \\
 \mathbf{k}=\mathbf{\Phi}^T \mathbf{K} \mathbf{\Phi}
-\end{eqnarray*}
+\end{align*}
 where $\mathbf{\Phi}$ is the eigen modes matrix. If we calculate them it is found that
-\begin{eqnarray*}
+\begin{align*}
 \mathbf{m}=\left(\begin{array}{cccc} 53.0 & 0 & 0 & 0\\ 0 & 53.0 & 0 & 0\\ 0 & 0 & 434.0 & 0\\ 0 & 0 & 0 & 764.0 \end{array}\right)
-\end{eqnarray*}
+\end{align*}
 and
-\begin{eqnarray*}
+\begin{align*}
 \mathbf{k}=\left(\begin{array}{cccc} 2.1\cdot 10^5 & 0 & 0 & 0\\ 0 & 2.1\cdot 10^5 & 0 & 0\\ 0 & 0 & 1.98\cdot 10^4 & 0\\ 0 & 0 & 0 & 3.24\cdot 10^4 \end{array}\right)
-\end{eqnarray*}
+\end{align*}
 \newpage
 ~\\
 \textbf{Show that vibration modes are orthogonal to each other with respect to mass and stiffness matrices.}
@@ -187,32 +187,33 @@ Zero bidiagonal elements in modal and stiffness matrices mean that the modes are
 \subsection*{Solution 2}
 \end{center}
 This problem can be solved numerically integrating the equations of motion. Before we do that, applied force on the second tire should be calculated. The force on the tire depends on the displacement of the road. Therefore, displacement profile with respect to time is
-\begin{eqnarray*}
-\mathrm{T}&= &0.072\frac{\mathrm{a}}{\mathrm{V}}\quad \mathrm{(seconds)}
-\\
-y_2&=&\{\begin{array}{clc}
+\begin{align*}
+\mathrm{T}& =0.072\frac{\mathrm{a}}{\mathrm{V}}\quad \mathrm{(seconds)}
+\end{align*}
+\begin{align*}
+y_2& =\{\begin{array}{clc}
 \mathrm{b}\sin\left(\frac{2\pi}{\mathrm{T}}t\right) &,& 0\leq t \leq \frac{\mathrm{T}}{2} \\ 
 0 &,& \frac{\mathrm{T}}{2}<t
 \end{array}
-\end{eqnarray*}
+\end{align*}
 with the found displacement of the road, complete force vector of the model is found as
-\begin{eqnarray*}
-\mathrm{F}=\left[\begin{array}{ccc}
+\begin{align*}
+\mathrm{F}& =\left[\begin{array}{ccc}
 0\\
 0\\
 y_1 k_t\\
 y_2 k_t
 \end{array}\right]
-\end{eqnarray*}
+\end{align*}
 With this calculated road input force, a numerical solution to the equations of motion of the car is done by a matlab function. This function is given in~\cref{lst:odefunc} and it calculates required derivatives of the system by using order reducing method. The derivatives can be integrated by a numerical method, for example Runge-Kutta. For the integration of derivatives \mcode{Ode45} function of matlab is used in which integration is done with Runge-Kutta45 method. Integration is completed with the command in \cref{lst:command}.
 \lstset{frame=single,numbers=left}
 \begin{lstlisting}[label=lst:command,caption=integration commands]
 options = odeset('MaxStep',1e-3)
 [t y]=ode45(@odefunc,[0 5],[0 0 0 0 0 0 0 0],options);
 \end{lstlisting}
-%\begin{eqnarray*}
+%\begin{align*}
 %{{\mathbf M}}\mathbf{\ddot {\mathbf x}}+{{\mathbf C}}\mathbf{\dot {\mathbf x}}+{{\mathbf K}}\mathbf{ {\mathbf x}}={{\mathbf F}}
-%\end{eqnarray*}
+%\end{align*}
 \newpage
 \lstset{frame=single,numbers=left}
 \lstinputlisting[label=lst:odefunc,caption={{odefunc.m}}]{Matlab/odefunc.m}
@@ -238,23 +239,23 @@ In \cref{fig:problem2}, a beam  with fixed one end, carrying  a rigid tip mass M
 \subsection*{Solution 1}
 \end{center}
 The transverse equation of motion for the beam is given by
-\begin{eqnarray*}
+\begin{align*}
  EI~\cfrac{\partial^4 w}{\partial x^4} + \rho A~\cfrac{\partial^2 w}{\partial t^2} = 0
-\end{eqnarray*}
+\end{align*}
 The boundary conditions for the problem are as follows:\\
 \begin{enumerate}
-\item {zero displacement at $x=0$ :\\ \begin{eqnarray*}
+\item {zero displacement at $x=0$ :\\ \begin{align*}
 w\left(0,t\right)=0
-\end{eqnarray*} }
-\item {zero slope of displacement at $x=0$ :\\ \begin{eqnarray*}
+\end{align*} }
+\item {zero slope of displacement at $x=0$ :\\ \begin{align*}
 \cfrac{\partial w\left(0,t\right)}{\partial x}=0
-\end{eqnarray*} }
-\item {shear force acceleration of lumped mass equilibrium at $x=L$ :\\ \begin{eqnarray*}
+\end{align*} }
+\item {shear force acceleration of lumped mass equilibrium at $x=L$ :\\ \begin{align*}
  EI~\cfrac{\partial w^3\left(L,t\right)}{\partial x^3}=M\cfrac{\partial w^2\left(L,t\right)}{\partial t^2}
-\end{eqnarray*} }
-\item {zero moment at $x=L$ :\\ \begin{eqnarray*}
+\end{align*} }
+\item {zero moment at $x=L$ :\\ \begin{align*}
  EI~\cfrac{\partial w^2\left(L,t\right)}{\partial x^2}=0
-\end{eqnarray*} }
+\end{align*} }
 \end{enumerate}
 \subsection*{Question 2}
 \textbf{Find the first five natural frequencies (Hz) and vibration modes of the system. Plot the vibration modes in the same figure.}
@@ -262,14 +263,14 @@ w\left(0,t\right)=0
 \subsection*{Solution 2}
 \end{center}
 Using seperation of variables method, the displacements of the beam can be written as
-\begin{eqnarray}
+\begin{align}
 u\left(x,t\right)=U\left(x\right)T\left(t\right)
-\end{eqnarray}
+\end{align}
 using this assumption with the equations of motion we have
-\begin{eqnarray}
-U^{IV} -\lambda^4U&=&0\\
-\ddot{T} +\omega^2 T&=&0
-\end{eqnarray}
+\begin{align}
+U^{IV} -\lambda^4U=0\\
+\ddot{T} +\omega^2 T=0
+\end{align}
 Using these differential equations , the space dependent part of the solution of transverse vibration of beam is found as
 \begin{equation}
 X(x)=A\cosh\left(\lambda x\right)+B\sinh\left(\lambda x\right)+C\cos\left(\lambda x\right)+D\sin\left(\lambda x\right)
@@ -279,7 +280,7 @@ and time dependent part as
 \begin{equation*}
 T(t)=\bar{A}\cos\left({\omega t}\right)+\bar{B}\sin\left({\omega t}\right)
 \end{equation*}
-where $\omega^2=\lambda^4 \cfrac{EI}{\rho A}$. In these equations have 4 variables to determine in the space dependent part. Using boundary conditions, these variables can be determined. Using first two boundary conditions
+where $\omega^2=\lambda^4 \cfrac{EI}{\rho A}$. In these equations there are 4 variables to determine in the space dependent part. Using boundary conditions, these variables can be determined. Using first two boundary conditions
 \begin{equation}
 U\left(0,t\right)= 0 \quad ; \quad  A+C=0 \quad \Longrightarrow \quad A=-C \label{eq:acrel}
 \end{equation}
@@ -287,47 +288,116 @@ U\left(0,t\right)= 0 \quad ; \quad  A+C=0 \quad \Longrightarrow \quad A=-C \labe
 U'\left(0,t\right)= 0\quad ; \quad B+D=0 \quad \Longrightarrow \quad B=-D\label{eq:bdrel}
 \end{equation}
 Using other boundary conditions
-\begin{eqnarray*}
-EIU''\left(L,t\right)= 0&;& \lambda^2 \biggl(A\cosh\left(\lambda L\right)+B\sinh\left(\lambda L\right)\\
-&&-C\cos\left(\lambda L\right) -D\sin\left(\lambda L\right)\biggr)=0\\
-EIU'''\left(L,t\right)-M\omega^2U\left(L,t\right)= 0&;& EI \lambda^3\biggl(A\sinh\left(\lambda L\right)+B\cosh\left(\lambda L\right)\\&&+C\sin\left(\lambda L\right)-D\cos\left(\lambda L\right)\biggr)\\
-&&- M\omega^2\biggl(A\cosh\left(\lambda L\right)+B\sinh\left(\lambda L\right)\\&&+C\cos\left(\lambda L\right)+D\sin\left(\lambda L\right) \biggr)
-\end{eqnarray*}
+\begin{align*}
+EIU''\left(L,t\right)= 0&; \lambda^2 \biggl(A\cosh\left(\lambda L\right)+B\sinh\left(\lambda L\right)\\
+&-C\cos\left(\lambda L\right) -D\sin\left(\lambda L\right)\biggr)=0\\
+EIU'''\left(L,t\right)-M\omega^2U\left(L,t\right)= 0&; EI \lambda^3\biggl(A\sinh\left(\lambda L\right)+B\cosh\left(\lambda L\right)\\&+C\sin\left(\lambda L\right)-D\cos\left(\lambda L\right)\biggr)\\
+&- M\omega^2\biggl(A\cosh\left(\lambda L\right)+B\sinh\left(\lambda L\right)\\&+C\cos\left(\lambda L\right)+D\sin\left(\lambda L\right) \biggr)
+\end{align*}
 from the third boundary condition we have
 \begin{equation}
 B=-\cfrac{\cosh\left(\lambda L\right)+\cos\left(\lambda L\right)}{\sinh\left(\lambda L\right)+\sin\left(\lambda L\right)}A
 \label{eq:barel}
 \end{equation}
 using all relations in the fourth boundary condition it is found that
-\begin{eqnarray*}
-A\biggl[\left( \sinh\!\left(L\, \lambda\right)-\sin\!\left(L\, \lambda\right)  - \frac{{\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)}}{\sin\!\left(L\, \lambda\right) + \sinh\!\left(L\, \lambda\right)}{\left(\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)\right)}\right)-&&
+\begin{align*}
+A\biggl[\lambda^3\left( \sinh\!\left(L\, \lambda\right)-\sin\!\left(L\, \lambda\right)  - \frac{{\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)}}{\sin\!\left(L\, \lambda\right) + \sinh\!\left(L\, \lambda\right)}{\left(\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)\right)}\right)-&
 \\ 
-\frac{M\, {\lambda}^4\,}{{ \mathrm{\rho}\, A}} \left(\cosh\!\left(L\, \lambda\right) - \cos\!\left(L\, \lambda\right) + \frac{\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)\, }{\sin\!\left(L\, \lambda\right) + \sinh\!\left(L\, \lambda\right)}\left(\sin\!\left(L\, \lambda\right) - \sinh\!\left(L\, \lambda\right)\right)\right)\biggr]&&\\= 0&&
-\end{eqnarray*}
+\frac{M\, {\lambda}^4\,}{{ \mathrm{\rho}\, A}} \left(\cosh\!\left(L\, \lambda\right) - \cos\!\left(L\, \lambda\right) + \frac{\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)\, }{\sin\!\left(L\, \lambda\right) + \sinh\!\left(L\, \lambda\right)}\left(\sin\!\left(L\, \lambda\right) - \sinh\!\left(L\, \lambda\right)\right)\right)\biggr]&\\= 0&
+\end{align*}
 where for a non trivial solution $A\neq 0$ should be satisfied. Therefore, the expression inside the brackets must be zero. This results an equation in terms of $\lambda$ where solution corresponds to the eigen frequencies of the beam. 
 \\~\\
 Since it is impossible to obtain explicit expression for the $\lambda$, numerical solution is done. Therefore, the first five space frequencies are found as
 
-\begin{eqnarray*}
-\mathbf{\mathrm{\Lambda}}&=&\left[\begin{array}{c} 3.9256\\ 7.0685\\ 10.2101\\ 13.3517\\ 16.4933 \end{array}\right] \mathrm{rad/m}
-\end{eqnarray*}
+\begin{align*}
+\mathbf{\mathrm{\Lambda}}=\left[\begin{array}{c} 3.8614\\ 7.0316\\ 10.1850\\ 13.3326\\ 16.4779 \end{array}\right] \mathrm{rad/m}
+\end{align*}
 The first five natural frequencies that are found  as
-\begin{eqnarray*}
-\mathbf{\mathrm{\Omega}}&=&\left[\begin{array}{c} 726\\ 2351\\ 4906\\ 8389\\ 12801 \end{array}\right] \mathrm{Hz}
-\end{eqnarray*}
-Mode shape that corresponds to an arbitrary $\lambda$ is found from ~\cref{eq:spacesolution} using the relations \crefrange{eq:acrel}{eq:barel}. The expression for the mode shapes for a specific $\lambda$ is found as
-\begin{eqnarray*}
-U\left(x\right)&=& A\biggl[\cosh\!\left(\lambda\, x\right) - \cos\!\left(\lambda\, x\right) + \frac{\sin\!\left(\lambda\, x\right)\, \left(\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)\right)}{\sin\!\left(L\, \lambda\right) + \sinh\!\left(L\, \lambda\right)} \\&& \quad \quad  - \frac{\sinh\!\left(\lambda\, x\right)\, \left(\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)\right)}{\sin\!\left(L\, \lambda\right) + \sinh\!\left(L\, \lambda\right)}\biggr]
-\end{eqnarray*}
-The plot of the shape $U\left(x\right)$ is given in \cref{fig:cantileverallmodes}.
+\begin{align*}
+\mathbf{\mathrm{\Omega}}=\left[\begin{array}{c} 223.3469\\ 740.6028\\ 1553.8015\\ 2662.5970\\ 4067.0401 \end{array}
+\right] \mathrm{Hz}
+\end{align*}
+Mode shape that corresponds to an arbitrary $\lambda_r$ is found from ~\cref{eq:spacesolution} using the relations \crefrange{eq:acrel}{eq:barel}. The expression for the mode shapes for a specific $\lambda$ is found as
+\begin{align*}
+U_r\left(x\right)&= A\biggl[\cosh\!\left(\lambda_r\, x\right) - \cos\!\left(\lambda_r\, x\right) +\left(\sin\!\left(\lambda_r\, x\right)\,- \sinh\!\left(\lambda_r\, x\right)\,\right)\\&\quad \quad \frac{ \left(\cos\!\left(L\, \lambda_r\right) + \cosh\!\left(L\, \lambda_r\right)\right)}{\sin\!\left(L\, \lambda_r\right) + \sinh\!\left(L\, \lambda_r\right)}\biggr]
+\end{align*}
+The plot of the first five modes' shapes $U_r\left(x\right)$ is given in \cref{fig:cantileverallmodes}.
 \begin{figure}[ht!]
 \centering
 \input{./Figures/cantileverallmodes}
-\caption{First five vibration modes of the beam. }
+\caption{First five vibration modes of the beam with a tip mass. }
 \label{fig:cantileverallmodes}
 \end{figure}
+\newpage
+\subsection*{Question 3}
+\textbf{Assume that  M=0, and   an impulse force with magnitude 10N is applied on the tip at t =0. Plot  the shape of the beam after 1, 3, and 5 seconds.}
+\\~\\
+For this problem setting $M=0$ gives
+\begin{align*}
+EI \lambda^3\biggl(A\sinh\left(\lambda L\right)+B\cosh\left(\lambda L\right)+C\sin\left(\lambda L\right)-D\cos\left(\lambda L\right)\biggr)=0
+\end{align*}
+for the last boundary condition. Using other boundary conditions 
+the frequency equation is found as
+\begin{align*}
+\sinh\left(\lambda L\right)-\sin\left(\lambda L\right)- \frac{ \left(\cos\!\left(L\, \lambda\right) + \cosh\!\left(L\, \lambda\right)\right)}{\sin\!\left(L\, \lambda\right) + \sinh\!\left(L\, \lambda\right)}\left(\cosh\left(\lambda L\right)+\cos\left(\lambda L\right)\right)=0
+\end{align*}
+Again using a numerical solution procedure, possible $\lambda$ values can be determined. Using found frequencies in the \cref{eq:spacesolution} explicit form of $U\left(x\right)$ is written as
+\begin{equation}
+\begin{split}
+U_r\left(x\right)&= A\biggl[\cosh\!\left(\lambda_r\, x\right) - \cos\!\left(\lambda_r\, x\right) +\left(\sin\!\left(\lambda_r\, x\right)\,- \sinh\!\left(\lambda_r\, x\right)\,\right)\\&\quad \quad \frac{ \left(\cos\!\left(L\, \lambda_r\right) + \cosh\!\left(L\, \lambda_r\right)\right)}{\sin\!\left(L\, \lambda_r\right) + \sinh\!\left(L\, \lambda_r\right)}\biggr]
+\end{split}
+\label{equ:uexpression}
+\end{equation}
+which is going to be used for the forced response of the system.
+\\~\\
+Forced response of the system can be written in modal coordinates as
+\begin{align}
+u\left(x,t\right)=\sum_{r=0}^{r=\infty}U_r\left(x\right)\eta_r\left(t\right)
+\label{equ:forcedassumption}
+\end{align}
+using this form in the equation of motion and multpliying both sides with the mode shape for arbitrary $\lambda_r$ for the beam and using the orthogonality conditions of the different mode shapes it is found that
+\begin{align}
+\ddot{\eta}_r\left(t\right)+\omega_r^2\eta_r\left(t\right)=F_r\left(t\right)\label{equ:modalequationsofmotion}
+\end{align}
+where 
+\begin{equation}
+F_r\left(t\right)=\int_{0}^{L}U_r\left(x\right)f\left(x,t\right)\;dx
+\label{equ:modalforce}
+\end{equation}
+here $f\left(x,t\right)=f_0\delta\left(x-L\right)\delta\left(t\right)$ for the problem. Using \cref{equ:uexpression} in \cref{equ:modalforce} we find
+\begin{equation}
+\begin{split}
+F_r\left(t\right)=U_r\left(L\right) f_{0}\, \delta\!\left(t\right)\,
+\end{split}
+\label{equ:modalforceexplicit}
+\end{equation}
+For the time evolution of the system we should solve \cref{equ:modalequationsofmotion}. General solution to \cref{equ:modalequationsofmotion} without initial conditions is given as
+\begin{equation}
+\eta_r\left(t\right)=\cfrac{1}{\omega_r}\int_{0}^{t} F_r\left(t-\tau\right)\sin\left(\omega_r\tau\right)d\tau
+\end{equation}
+using \cref{equ:modalforceexplicit} it is found that
+\begin{equation}
+\eta_r\left(t\right)=\frac{U_r\left(L\right) f_{0}\,}{\omega_r}\sin\left(\omega_r t\right)
+\label{equ:etaexplicit}
+\end{equation}
+\Cref{equ:etaexplicit} with \crefrange{equ:uexpression}{equ:forcedassumption} completely describes the forced response of the beam. Time evolution of the system requires to combine multiple modes together, therefore, it will change its behavior as more modes are added into the solution. Usually maximum number of modes that are required for an accurate solution is found by tracking the convergence of the solution while changing included number of modes. Plots of the time evolution of the beam at t=1,3,5 s using different number of modes is given in \cref{fig:cantilevertimeevolution}.
+\begin{figure}[ht!]
 
-
+\end{figure}
+\begin{figure}[ht!]
+\begin{subfigure}[b]{0.5\textwidth}
+\centering
+\input{./Figures/cantilevertimeevolution_t=all}
+\end{subfigure}\\
+\\
+\\
+\begin{subfigure}[b]{1\textwidth}
+\centering
+\includegraphics[width=0.4\textwidth]{./Figures/cantilevertimeevolution_legend}
+\end{subfigure}
+\caption{Plot of cantilever beam for t=1, t=3 and t=5 s. }
+\label{fig:cantilevertimeevolution}
+\end{figure}
 \bibliographystyle{plain}
 \bibliography{biblio}
 
