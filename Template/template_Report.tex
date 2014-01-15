@@ -1,0 +1,128 @@
+\documentclass[]{report}
+
+
+% Title Page
+\title{Title of the Homework}
+\author{Burak ER}
+
+\usepackage{psfrag}
+
+\usepackage{amsmath}
+
+\usepackage{amssymb}
+
+\usepackage{pstricks, pst-node, pst-plot, pst-circ}
+
+\usepackage{moredefs}
+
+\usepackage{hyperref}
+
+\usepackage{cleveref}
+
+\usepackage{graphicx}
+
+\usepackage{epstopdf}
+
+\usepackage{epsfig}
+
+\usepackage{algorithm}
+
+\usepackage{program}
+
+\usepackage{graphicx}
+
+\usepackage{caption}
+
+\usepackage{subcaption}
+
+\usepackage[autolinebreaks,useliterate]{mcode}
+
+\crefname{lstlisting}{listing}{listings}
+
+\Crefname{lstlisting}{Listing}{Listings}
+
+\begin{document}
+
+
+\maketitle
+\begin{abstract}
+Includes the solutions for the $number$th homework problems of \emph{A Hard} class given at Bursa Technical University, in $...$ semester year $20..$.
+\\
+\\
+Written using \LaTeX ...
+\end{abstract}
+\section*{Problem 1}
+Sızıntı (spektral leakage)
+
+An equation..
+\begin{align*}
+\mathbf{M}=\left[\begin{array}{cccc}
+m&0&0&0\\
+0&I_x&0&0 \\
+0&0&m_1&0 \\
+0&0&0&m_2
+\end{array}\right]
+\end{align*}
+
+\subsection*{Subquestion}
+
+\begin{enumerate}
+\item Find this and this...
+\begin{enumerate}
+\item Using this...
+\item Use that... 
+\end{enumerate}
+\item Find the ...
+\end{enumerate}
+
+\begin{center}
+\subsection*{Solution 1}
+\end{center}
+\textbf{Find this and this...}\\~\\
+Here goes the solution...
+A numbered equation...
+\begin{align}
+\mathrm{det}\left(-\lambda^2\mathbf{M}+ \mathbf{K}\right)=0
+\label{equ:myuselessequation}
+\end{align}
+Using the equation \cref{equ:myuselessequation}, it is found that ...\\~\\
+In \cref{fig:timedependenttires}, it is given that ...
+\begin{figure}[ht!]
+\centering
+\input{./Figures/allmode}
+\caption{A Figure that is output of LaPrint using Matlab. Use input command to include graphics.}
+\label{fig:timedependenttires}
+\end{figure}
+\\~\\
+\section*{Problem 2}
+Another problem definition...
+\subsection*{Question 1}
+\textbf{Text of the question 1}
+\begin{center}
+\subsection*{Solution 1 of Problem 2}
+\end{center}
+An equation...
+\begin{align*}
+ EI~\cfrac{\partial^4 w}{\partial x^4} + \rho A~\cfrac{\partial^2 w}{\partial t^2} = 0
+\end{align*}
+An enumaration...\\
+\begin{enumerate}
+\item {my first item}
+\item {my second item }
+\item {my third item }
+\item {my fourth item }
+\end{enumerate}
+\subsection*{Question 2}
+\textbf{Text of the question 2.}
+\begin{center}
+\subsection*{Solution 2}
+\end{center}
+Solution to the problem 2.
+
+
+\bibliographystyle{plain}
+\bibliography{biblio}
+
+\end{document}          
+
+
