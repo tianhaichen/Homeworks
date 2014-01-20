@@ -1,0 +1,266 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 600 300">
+ <title>Visual comparison of convolution, cross-correlation and autocorrelation.</title>
+ <desc>Visual comparison of convolution, cross-correlation and autocorrelation by CMG Lee.</desc>
+ <defs>
+  <path id="arrow_up" d="M -4 1.5 L 0 -1 L 4 1.5" stroke="none"/>
+  <use id="arrow_down" xlink:href="#arrow_up" transform="scale(1,-1)"/>
+  <path id="graph_f_nostroke" d="M -55 0 H -10 V -20 H 10 V 0 H 55"/>
+  <use id="graph_f" xlink:href="#graph_f_nostroke" stroke="#0000ff"/>
+  <use id="graph_g_f" xlink:href="#graph_f_nostroke" stroke="#ff0000"/>
+  <path id="graph_g" d="M -55 0 H -10 V -20 L 10 0 H 55" stroke="#ff0000"/>
+  <path id="graph_cc" d="M -55 0 H -20 Q -10 -2 0 -10 Q 10 -10 20 0 H 55" stroke="#000000"/>
+  <use id="graph_g_rev" xlink:href="#graph_g" transform="scale(-1,1)"/>
+  <clipPath id="clip_set"><rect x="-95" y="-190" width="190" height="300"/></clipPath>
+  <clipPath id="clip_rect"><rect x="-35" y="-25" width="70" height="30"/></clipPath>
+  <clipPath id="clip_graph_f"><use xlink:href="#graph_f"/></clipPath>
+ </defs>
+
+ <g font-family="sans-serif" letter-spacing="-2" font-size="24" text-anchor="middle" stroke-width="2" stroke-linejoin="round" fill="none">
+  <g transform="translate(100,190)" clip-path="url(#clip_set)">
+   <g fill="#000000">
+    <text x="0" y="-160">Convolution</text>
+    <text x="-65" y="-120">f</text>
+    <text x="-65" y="-70">g</text>
+    <text x="-65" y="-20">f∗g</text>
+   </g>
+   <g transform="scale(-2,2)">
+    <use xlink:href="#graph_f" transform="translate(0,-50)"/>
+    <use xlink:href="#graph_g_rev" transform="translate(0,-25)"/>
+    <use xlink:href="#graph_cc"/>
+    <g transform="translate(-10,0)" stroke="#0099cc" fill="#0099cc">
+     <path d="M 0 0 V -4"/>
+     <use xlink:href="#arrow_up" transform="translate(0,-4)"/>
+     <use xlink:href="#arrow_down"/>
+    </g>
+    <g stroke="#00cc00" fill="#00cc00">
+     <path d="M 0 0 V -9"/>
+     <use xlink:href="#arrow_up" transform="translate(0,-9)"/>
+     <use xlink:href="#arrow_down"/>
+    </g>
+    <g transform="translate(10,0)" stroke="#cc9900" fill="#cc9900">
+     <path d="M 0 0 V -7"/>
+     <use xlink:href="#arrow_up" transform="translate(0,-7)"/>
+     <use xlink:href="#arrow_down"/>
+    </g>
+   </g>
+   <g stroke="#999999" fill="#999999">
+    <g transform="translate(-40,0)">
+     <path d="M 0 5 V 35"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g transform="translate(-20,0)">
+     <path d="M 0 5 V 65"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g>
+     <path d="M 0 5 V 75"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g transform="translate(20,0)">
+     <path d="M 0 5 V 65"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g transform="translate(40,0)">
+     <path d="M 0 5 V 35"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+   </g>
+   <g transform="translate(-60,40)" clip-path="url(#clip_rect)">
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g_rev" transform="translate(-20,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(60,40)" clip-path="url(#clip_rect)">
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g_rev" transform="translate(20,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(-45,70)" clip-path="url(#clip_rect)">
+    <g clip-path="url(#clip_graph_f)">
+     <use xlink:href="#graph_g_rev" fill="#cc9900" transform="translate(-10,0)"/>
+    </g>
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g_rev" transform="translate(-10,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(45,70)" clip-path="url(#clip_rect)">
+    <g clip-path="url(#clip_graph_f)">
+     <use xlink:href="#graph_g_rev" fill="#0099cc" transform="translate(10,0)"/>
+    </g>
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g_rev" transform="translate(10,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(0,100)" clip-path="url(#clip_rect)">
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g_rev" fill="#00cc00"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+  </g>
+
+  <g transform="translate(300,190)" clip-path="url(#clip_set)">
+   <g fill="#000000">
+    <text x="0" y="-160">Cross-correlation</text>
+    <text x="-65" y="-120">f</text>
+    <text x="-65" y="-70">g</text>
+    <text x="-65" y="-20">f⋆g</text>
+   </g>
+   <g transform="scale(2,2)">
+    <use xlink:href="#graph_f" transform="translate(0,-50)"/>
+    <use xlink:href="#graph_g" transform="translate(0,-25)"/>
+    <use xlink:href="#graph_cc"/>
+    <g transform="translate(-10,0)" stroke="#cc9900" fill="#cc9900">
+     <path d="M 0 0 V -4"/>
+     <use xlink:href="#arrow_up" transform="translate(0,-4)"/>
+     <use xlink:href="#arrow_down"/>
+    </g>
+    <g stroke="#00cc00" fill="#00cc00">
+     <path d="M 0 0 V -9"/>
+     <use xlink:href="#arrow_up" transform="translate(0,-9)"/>
+     <use xlink:href="#arrow_down"/>
+    </g>
+    <g transform="translate(10,0)" stroke="#0099cc" fill="#0099cc">
+     <path d="M 0 0 V -7"/>
+     <use xlink:href="#arrow_up" transform="translate(0,-7)"/>
+     <use xlink:href="#arrow_down"/>
+    </g>
+   </g>
+   <g stroke="#999999" fill="#999999">
+    <g transform="translate(-40,0)">
+     <path d="M 0 5 V 35"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g transform="translate(-20,0)">
+     <path d="M 0 5 V 65"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g>
+     <path d="M 0 5 V 75"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g transform="translate(20,0)">
+     <path d="M 0 5 V 65"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g transform="translate(40,0)">
+     <path d="M 0 5 V 35"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+   </g>
+   <g transform="translate(-60,40)" clip-path="url(#clip_rect)">
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g" transform="translate(-20,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(60,40)" clip-path="url(#clip_rect)">
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g" transform="translate(20,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(-45,70)" clip-path="url(#clip_rect)">
+    <g clip-path="url(#clip_graph_f)">
+     <use xlink:href="#graph_g" fill="#cc9900" transform="translate(-10,0)"/>
+    </g>
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g" transform="translate(-10,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(45,70)" clip-path="url(#clip_rect)">
+    <g clip-path="url(#clip_graph_f)">
+     <use xlink:href="#graph_g" fill="#0099cc" transform="translate(10,0)"/>
+    </g>
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g" transform="translate(10,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(0,100)" clip-path="url(#clip_rect)">
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g" fill="#00cc00"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+  </g>
+
+  <g transform="translate(500,190)" clip-path="url(#clip_set)">
+   <g fill="#000000">
+    <text x="0" y="-160">Autocorrelation</text>
+    <text x="-65" y="-120">f</text>
+    <text x="-65" y="-70">f</text>
+    <text x="-65" y="-20">f⋆f</text>
+   </g>
+   <g transform="scale(2,2)">
+    <use xlink:href="#graph_f" transform="translate(0,-50)"/>
+    <use xlink:href="#graph_g_f" transform="translate(0,-25)"/>
+    <path d="M -55 0 H -20 L 0 -20 L 20 0 H 55" stroke="#000000"/>
+    <g transform="translate(-10,0)" stroke="#cc9900" fill="#cc9900">
+     <path d="M 0 0 V -9"/>
+     <use xlink:href="#arrow_up" transform="translate(0,-9)"/>
+     <use xlink:href="#arrow_down"/>
+    </g>
+    <g stroke="#00cc00" fill="#00cc00">
+     <path d="M 0 0 V -19"/>
+     <use xlink:href="#arrow_up" transform="translate(0,-19)"/>
+     <use xlink:href="#arrow_down"/>
+    </g>
+    <g transform="translate(10,0)" stroke="#0099cc" fill="#0099cc">
+     <path d="M 0 0 V -9"/>
+     <use xlink:href="#arrow_up" transform="translate(0,-9)"/>
+     <use xlink:href="#arrow_down"/>
+    </g>
+   </g>
+   <g stroke="#999999" fill="#999999">
+    <g transform="translate(-40,0)">
+     <path d="M 0 5 V 35"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g transform="translate(-20,0)">
+     <path d="M 0 5 V 65"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g>
+     <path d="M 0 5 V 75"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g transform="translate(20,0)">
+     <path d="M 0 5 V 65"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+    <g transform="translate(40,0)">
+     <path d="M 0 5 V 35"/>
+     <use xlink:href="#arrow_up" transform="translate(0,5)"/>
+    </g>
+   </g>
+   <g transform="translate(-60,40)" clip-path="url(#clip_rect)">
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g_f" transform="translate(-20,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(60,40)" clip-path="url(#clip_rect)">
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g_f" transform="translate(20,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(-45,70)" clip-path="url(#clip_rect)">
+    <g clip-path="url(#clip_graph_f)">
+     <use xlink:href="#graph_g_f" fill="#cc9900" transform="translate(-10,0)"/>
+    </g>
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g_f" transform="translate(-10,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(45,70)" clip-path="url(#clip_rect)">
+    <g clip-path="url(#clip_graph_f)">
+     <use xlink:href="#graph_g_f" fill="#0099cc" transform="translate(10,0)"/>
+    </g>
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g_f" transform="translate(10,0)"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+   <g transform="translate(0,100)" clip-path="url(#clip_rect)">
+    <use xlink:href="#graph_f"/>
+    <use xlink:href="#graph_g_f" fill="#00cc00"/>
+    <use xlink:href="#graph_f" stroke-opacity="0.5"/>
+   </g>
+  </g>
+ </g>
+</svg>
